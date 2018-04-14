@@ -13,5 +13,9 @@ Route::group(['middleware' => ['api']], function() {
     Route::get('/test', function() {
       dd('You are authenticated');
     });
+
+    Route::get('/user', [
+      'uses' => 'UserController@index'
+    ]);
   });
 });
