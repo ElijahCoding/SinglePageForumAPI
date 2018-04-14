@@ -23,4 +23,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password'
     ];
+
+    public function avatar()
+    {
+        return 'http://www.gravatar.com/avatar/' . md5($this->email) . '?s=35&d=mm';
+    }
 }
