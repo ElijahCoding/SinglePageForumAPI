@@ -1,3 +1,7 @@
 <?php
 
-$app->route(['GET', 'PUT'], '/article[/{id}]', \App\Controllers\ArticleController::class);
+$app->route(
+  ['GET', 'PUT', 'POST', 'DELETE'],
+  '/articles[/{id}]',
+  \App\Controllers\ArticleController::class
+);
