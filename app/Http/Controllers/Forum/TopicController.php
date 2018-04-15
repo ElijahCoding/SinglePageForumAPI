@@ -16,7 +16,7 @@ class TopicController extends Controller
 {
     public function index(GetTopicsForumRequest $request, Section $section)
     {
-      $topics = $section->find($request->get('section_id'))->topics;
+      $topics = $section->find($request->get('section_id'))->topics()->latestFirst()->get();
 
       return fractal()
              ->collection($topics)

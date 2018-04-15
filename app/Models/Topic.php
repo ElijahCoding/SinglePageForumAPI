@@ -10,6 +10,11 @@ class Topic extends Model
 {
     protected $guarded = [];
 
+    public function scopeLatestFirst($query)
+    {
+      return $query->orderBy('created_at', 'desc');
+    }
+
     public function user()
     {
       return $this->belongsTo(User::class);
