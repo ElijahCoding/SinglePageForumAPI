@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Forum\CreatePostFormRequest;
+use App\Transformers\PostTransformer;
 
 class PostController extends Controller
 {
@@ -17,6 +18,10 @@ class PostController extends Controller
         'user_id' => $request->user()->id
       ]);
 
-
+      return fractal()
+             ->item($post)
+             ->includeUser()
+             ->transformWith(new PostTransformer)
+             ->toArray();
     }
 }
