@@ -34,5 +34,9 @@ Route::group(['middleware' => ['api']], function() {
     Route::post('topic', [
       'uses' => 'Forum\TopicController@store'
     ]);
+
+    Route::post('topic/{topic}/post', [
+      'uses' => 'Forum\PostController@store'
+    ]);
   });
 });
