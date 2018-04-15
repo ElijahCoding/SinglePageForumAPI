@@ -16,4 +16,12 @@ class Controller
         $this->response = $response;
         $this->container = $container;
     }
+
+    public function response($content = '', $httpStatus = 200)
+    {
+        $body = $this->response->getBody();
+        $body->write($content);
+
+        return $this->response->withStatus($httpStatus)->withBody($body);
+    }
 }
