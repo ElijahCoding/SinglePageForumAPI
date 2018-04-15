@@ -8,6 +8,7 @@ use App\Models\Section;
 use App\Models\Topic;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Forum\CreateTopicForumRequest;
+use App\Transformers\UserTransformer;
 use App\Transformers\TopicTransformer;
 
 class TopicController extends Controller
@@ -33,7 +34,10 @@ class TopicController extends Controller
 
       return fractal()
             ->item($topic)
+            ->includeUser()
+            ->includeSection()
             ->transformWith(new TopicTransformer)
             ->toArray();
     }
+
 }

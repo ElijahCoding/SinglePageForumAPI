@@ -9,14 +9,14 @@ use Illuminate\Database\Eloquent\Model;
 class Topic extends Model
 {
     protected $guarded = [];
-    
+
     public function user()
     {
-      return $this->belogsTo(User::class);
+      return $this->belongsTo(User::class);
     }
 
     public function section()
     {
-      return $this->belogsTo(Section::class);
+      return $this->belongsTo(Section::class);
     }
 }
