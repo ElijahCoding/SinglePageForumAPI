@@ -9,6 +9,10 @@ Route::group(['middleware' => ['api']], function() {
     'uses' => 'AuthController@signIn'
   ]);
 
+  Route::get('/sections', [
+    'uses' => 'Forum\SectionController@index'
+  ]);
+
   Route::group(['middleware' => 'jwt.auth'], function() {
     Route::get('/test', function() {
       dd('You are authenticated');
