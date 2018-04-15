@@ -4,13 +4,13 @@ namespace App\Http\Controllers\Forum;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
-use App\Modes\Section;
-use App\Modes\Topic;
+use App\Models\Section;
+use App\Models\Topic;
 use App\Http\Controllers\Controller;
 
 class TopicController extends Controller
 {
-    public function index(Section $section)
+    public function index(Request $request, Section $section)
     {
 
     }
@@ -20,8 +20,8 @@ class TopicController extends Controller
 
     }
 
-    public function store()
+    public function store(Request $request)
     {
-      
+
     }
 }
